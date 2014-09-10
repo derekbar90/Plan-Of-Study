@@ -8,7 +8,16 @@ public class Controller{
 
 		View view = new View();
 
-		view.exsistingPlanOfStudy();
+		if (view.exsistingPlanOfStudy() == true) {
+			
+			String filename = view.planOfStudy();
+
+		}else{
+
+
+
+		}
+
 	}
 
 }

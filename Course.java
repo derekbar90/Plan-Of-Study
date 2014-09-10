@@ -1,1 +1,5 @@
-public class 
+public class Course{
+
+
+
+}
