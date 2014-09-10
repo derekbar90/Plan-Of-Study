@@ -69,6 +69,12 @@ public class View{
 
 	}
 
+	/**
+	 * Provides user with a list of preexsisting plans of study and sets a string
+	 * to the given file location. 
+	 *
+	 * @return String of exsisting plan of study file location
+	 */
 	public String planOfStudyChoice(){
 
 		System.out.println("Enter your concentration:");

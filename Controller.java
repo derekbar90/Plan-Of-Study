@@ -1,7 +1,3 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-
 public class Controller{
 
 	public void start(){
@@ -14,7 +10,9 @@ public class Controller{
 
 		}else{
 
-			String t = view.planOfStudyChoice();
+			Plan plan = new Plan();
+
+			plan.readFile(view.planOfStudyChoice());
 
 		}
 
