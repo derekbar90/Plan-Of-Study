@@ -21,14 +21,27 @@ public class Plan{
 	
 	}
 
-	public createPlan(File planFile){
+	public void createPlan(File planFile){
 
 		try {
 
+			Scanner scan = new Scanner(planFile);
+
+			while(scan.hasNext()){
+
+				int semester = scan.nextInt();
+				int courseNumber = scan.nextInt();
+				String department = scan.next();
+				int credits = scan.nextInt();
+				String courseDescription = scan.nextLine();
+
+				System.out.println(semester + " " + courseNumber + " " + department + " " +  credits + " " + courseDescription);
+
+			}
 
 		}catch(FileNotFoundException e){
 
-			e.
+			e.printStackTrace();
 		}
 
 	}

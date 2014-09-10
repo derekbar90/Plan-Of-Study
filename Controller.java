@@ -12,7 +12,7 @@ public class Controller{
 
 			Plan plan = new Plan();
 
-			plan.readFile(view.planOfStudyChoice());
+			plan.createPlan(plan.readFile(view.planOfStudyChoice()));
 
 		}
 
