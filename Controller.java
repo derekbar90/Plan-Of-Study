@@ -10,11 +10,11 @@ public class Controller{
 
 		if (view.exsistingPlanOfStudy() == true) {
 			
-			String filename = view.planOfStudy();
+			String planOfStudy = view.planOfStudy();
 
 		}else{
 
-
+			String t = view.planOfStudyChoice();
 
 		}
 

@@ -1,4 +1,6 @@
-import java.util.*;
+import java.util.Scanner;
+import java.lang.String;
+import java.io.File;
 
 public class View{
 
@@ -65,6 +67,44 @@ public class View{
 
 		return filename;
 
+	}
+
+	public String planOfStudyChoice(){
+
+		System.out.println("Enter your concentration:");
+		System.out.println("Information Systems (IS)");
+		System.out.println("Web Development (WD)");
+		System.out.println("Computer Science (CS)");
+		System.out.println("Database (DB)");
+		System.out.println("Networks (NW)");
+		System.out.println("Software Engineering (SE) ");
+		String posTemplate = getUserInput();
+
+		switch (posTemplate.toLowerCase()) {
+            case "is":
+                posTemplate = "TestCases/InformationSystems.dat";
+                break;
+            case "wd":
+                posTemplate = "TestCases/InformationSystems.dat";;
+                break;
+            case "cs":
+                posTemplate = "TestCases/InformationSystems.dat";;
+                break;
+            case "db":
+                posTemplate = "TestCases/InformationSystems.dat";;
+                break;
+            case "nw":
+                posTemplate = "TestCases/InformationSystems.dat";;
+                break;
+            case "se":
+                posTemplate = "TestCases/InformationSystems.dat";;
+                break;
+            default: 
+                System.out.println("Default");
+                break;
+        }
+
+		return posTemplate;
 	}
 
 }
