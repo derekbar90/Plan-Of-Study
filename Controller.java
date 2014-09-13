@@ -1,16 +1,15 @@
 public class Controller{
 
-	public void start(){
+	View view = new View();
+	Plan plan = new Plan();
 
-		View view = new View();
+	public void start(){
 
 		if (view.exsistingPlanOfStudy() == true) {
 			
-			String planOfStudy = view.planOfStudy();
+			plan.createPlan(plan.readFile(view.planOfStudy()));
 
 		}else{
-
-			Plan plan = new Plan();
 
 			plan.createPlan(plan.readFile(view.planOfStudyChoice()));
 

@@ -1,8 +1,11 @@
 import java.util.Scanner;
 import java.lang.String;
 import java.io.File;
+import java.util.ArrayList;
 
 public class View{
+
+
 
 	/**
 	 * Creates Scanner object and scans for user input 
@@ -75,6 +78,7 @@ public class View{
 	 *
 	 * @return String of exsisting plan of study file location
 	 */
+	
 	public String planOfStudyChoice(){
 
 		System.out.println("Enter your concentration:");
@@ -91,19 +95,19 @@ public class View{
                 posTemplate = "TestCases/InformationSystems.dat";
                 break;
             case "wd":
-                posTemplate = "TestCases/InformationSystems.dat";;
+                posTemplate = "TestCases/WebDevelopment.dat";
                 break;
             case "cs":
-                posTemplate = "TestCases/InformationSystems.dat";;
+                posTemplate = "TestCases/ComputerScience.dat";
                 break;
             case "db":
-                posTemplate = "TestCases/InformationSystems.dat";;
+                posTemplate = "TestCases/Database.dat";
                 break;
             case "nw":
-                posTemplate = "TestCases/InformationSystems.dat";;
+                posTemplate = "TestCases/Networks.dat";
                 break;
             case "se":
-                posTemplate = "TestCases/InformationSystems.dat";;
+                posTemplate = "TestCases/SoftwareEngineering.dat";
                 break;
             default: 
                 System.out.println("Default");
@@ -111,6 +115,30 @@ public class View{
         }
 
 		return posTemplate;
+	}
+
+	public void printPlan(ArrayList<Course> plan){
+
+		for (int i = 0 ; i < plan.size(); i++) {
+
+			Course course = plan.get(i);
+			int semesters = course.semester;
+
+			while(course.semester == semesters){
+				
+				System.out.println(course);
+				semesters++;
+
+			}
+
+			if(semesters != course.semester){
+
+				System.out.println("Semester " + course.semester);
+
+			}
+					
+		}
+
 	}
 
 }

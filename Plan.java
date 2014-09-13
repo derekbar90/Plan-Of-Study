@@ -1,8 +1,13 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Plan{
+
+	ArrayList<Course> planArray = new ArrayList<Course>();
+	View view = new View();
 
 	/**
 	 * Reads a file location in the @param inputLocation and 
@@ -26,26 +31,47 @@ public class Plan{
 		try {
 
 			Scanner scan = new Scanner(planFile);
+			int semester = 0;
+			int currentSemester = 0;
+			int courseOrder, courseNumber, credits;
+			String department, courseName;
+			
+			semester = scan.nextInt();
 
 			while(scan.hasNext()){
 
-				int semester = scan.nextInt();
-				int courseNumber = scan.nextInt();
-				String department = scan.next();
-				int credits = scan.nextInt();
-				String courseDescription = scan.nextLine();
+				if (currentSemester != semester) {
+					
+					semester++;
 
-				System.out.println(semester + " " + courseNumber + " " + department + " " +  credits + " " + courseDescription);
+				}else{
+
+						courseOrder = scan.nextInt();
+						department = scan.next();
+						courseNumber = scan.nextInt();
+						credits = scan.nextInt();
+						courseName = scan.nextLine();
+
+						planArray.add(new Course(semester, courseOrder, department, courseNumber, credits, courseName));
+												
+						if(scan.hasNext()){
+						
+							currentSemester = scan.nextInt();
+						
+						}
+					
+				}
 
 			}
 
+			view.printPlan(planArray);
+					
 		}catch(FileNotFoundException e){
 
 			e.printStackTrace();
+
 		}
 
 	}
 
-
-	
 }

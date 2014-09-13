@@ -1,0 +1,115 @@
+ITEC 220 – Fall 2014 – Project 1 
+
+You are to create a text-based Java application to plan and document your Program of Study for your college career.  Your solution must be a multiple class system using a Model-View-Controller design pattern that we will be discussing in class.
+
+For each course in your Program of Study, your application must keep track of the Department, Course Number, Course Title, Credit Hours, and Grade for each course.  Suggestion:  Using the MVC pattern, you will likely want to create a class to represent a course and then create one instance of this class for each course in your Program of Study.
+
+Your application will model your Program of Study as a two-dimensional array of Course objects.  One dimension of the array will be the semesters (numbered 0 to 9) and the second dimension of the array will be the course within a semester (numbered 0 to 7). 
+
+At the start of the application the user will be prompted to determine if there is an existing Program of Study.  If there is one, then the user should be prompted for the name of the file containing the existing Program of Study.  For example, it might look something like this: 
+
+Is there an existing Program of Study (Y or N)? Y
+
+Enter the filename for the existing file:     ChasePOS.dat
+
+If there is not an existing Program of Study, then your application will have the user choose their  IT concentration from a list: 
+
+Enter your concentration:
+
+Information Systems (IS)
+
+Web Development (WD)
+
+Computer Science (CS)
+
+Database (DB)
+
+Networks (NW)
+
+Software Engineering (SE) 
+
+Once the user enters their concentration, a “typical schedule” program of study will be read into the array from the appropriate file.  There will be one file per major using the name of the program followed by .dat (e.g. InformationSystem.dat).  Each line of the file will consist of the following:
+
+            Semester (int)
+
+            Course (int)
+
+            Department (String)
+
+            Course Number (int)
+
+            Credit Hours (int)
+
+            Course Title (String)
+
+The files for the typical schedule for each major are provided for you.  Here is an example of the format of the file: 
+
+0 0 Core 101 3 University Core A: Core 101        
+
+0 1 ITEC 110 3 Introduction to Information Technology
+
+0 2 ITEC 120 4 Principles of Computer Science I
+
+0 3 MATH 126 3 Business Calculus
+
+0 4 UNIV 100 1 University 100
+
+1 0 Core 102 3 University Core A: Core 102        
+
+1 1 STAT 200 3 Introduction to Statistics
+
+1 2 ITEC 220 4 Principles of Computer Science II
+
+1 3 ITEC 226 3 Digital Imaging for the Web 
+
+Once the array has been loaded either from an existing POS or from one of the typical schedule files, the user will have the following options: 
+
+            Find a course in the Program of Study (find)
+
+            Add a course to the Program of Study (add)
+
+            Remove a course from the Program of Study (remove)
+
+            Add a grade for a course in the Program of Study (grade)
+
+            Output the courses in a particular semester (prints)
+
+            Output the entire Program of Study (printPOS)
+
+            Save the Program of Study to a file (save)
+
+            Exit the system (exit)           
+
+Finding a course will involve the user entering the Department and Course Number.  If the given course is in the POS, your application will return the semester for the given course.  If the course is not in the POS, your application will report that the Course was not found. 
+
+Adding a course involves specifying a location in the array and then entering all of the relevant information:  Semester (int), Course (int), Department (String), Course Number (int), Credit Hours (int) and Course Title (String).
+
+Removing a course involves specifying the semester by index and the course by index and removing the course stored at that location. 
+
+Adding a grade to a course simply involves prompting the user for the location in the array and the grade to add.
+
+To output the courses in a particular semester, simply output all of the information for each course in that semester, one course per line. 
+
+To output the courses for the entire POS, output all of the information for each course, one course per line.  You will also need to add one blank line between each semester. 
+
+For this project, we will choose to not check for or prevent duplicate courses.  Also, keep in mind that the saved Program of Study will have one additional field (grade) that the template files do not.  For that reason, the format of the saved file should be as follows:
+
+            Semester (int)
+
+            Course (int)
+
+            Department (String)
+
+            Course Number (int)
+
+            Credit Hours (int)
+
+            Grade (char)
+
+            Course Title (String)
+
+For the purposes of this project, we will also assume that the files are present, correctly named, and correctly formatted.  As we learn about exception handling, we will reconsider these assumptions.
+
+EXTRA CREDIT
+
+Five points extra credit is available for this project for those students that succesfully complete the project with a graphical user interface.
