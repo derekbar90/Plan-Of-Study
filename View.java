@@ -5,8 +5,6 @@ import java.util.ArrayList;
 
 public class View{
 
-
-
 	/**
 	 * Creates Scanner object and scans for user input 
 	 * using the next() method. 
@@ -110,15 +108,16 @@ public class View{
                 posTemplate = "TestCases/SoftwareEngineering.dat";
                 break;
             default: 
-                System.out.println("Default");
+                planOfStudyChoice();
                 break;
         }
 
 		return posTemplate;
 	}
 
-	public void menu(){
+	public String menu(ArrayList<Course> arrayList){
 
+			System.out.println("Please make a selection from the followings");
 			System.out.println("Find a course in the Program of Study (find)");
             System.out.println("Add a course to the Program of Study (add)");
             System.out.println("Remove a course from the Program of Study (remove)");
@@ -127,40 +126,9 @@ public class View{
             System.out.println("Output the entire Program of Study (printPOS)");
             System.out.println("Save the Program of Study to a file (save)");
             System.out.println("Exit the system (exit)");
-            		
-	}
+            String menuSelection = getUserInput();
 
-	/**
-	 * Print the Plan of Study from an ArrayList that 
-	 * holds objects of the Course class. Using a for loop
-	 * to iterate through the array of objects and printing 
-	 * them out while maintaining whilespace between semesters
-	 * 
-	 * @param plan ArayList of Course objects
-	 */
-	
-	public void printPlan(ArrayList<Course> plan){
-
-		int currentSemester = 0;
-
-		for (int i = 0 ; i < plan.size(); i++) {
-
-			Course course = plan.get(i);
-
-			if(course.semester != currentSemester){
-
-				System.out.print(course);
-
-			}else{
-
-				System.out.println("");
-				System.out.print(course);
-				currentSemester++;
-
-			}
-					
-		}
-
+            return menuSelection;
 	}
 
 }
