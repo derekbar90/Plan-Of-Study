@@ -58,13 +58,13 @@ public class Plan{
 						
 							currentSemester = scan.nextInt();
 						
-						}
+						}	
 					
 				}
 
 			}
 
-			view.printPlan(planArray);
+			view.menu();
 					
 		}catch(FileNotFoundException e){
 

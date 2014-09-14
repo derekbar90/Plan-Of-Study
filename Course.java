@@ -15,7 +15,7 @@ public class Course{
 		this.courseNumber = courseNumber;
 		this.credits = credits;
 		this.courseName = courseName;
-		grade = null;
+		grade = '\u0000';
 
 	}
 

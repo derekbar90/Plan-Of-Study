@@ -117,23 +117,45 @@ public class View{
 		return posTemplate;
 	}
 
+	public void menu(){
+
+			System.out.println("Find a course in the Program of Study (find)");
+            System.out.println("Add a course to the Program of Study (add)");
+            System.out.println("Remove a course from the Program of Study (remove)");
+            System.out.println("Add a grade for a course in the Program of Study (grade)");
+            System.out.println("Output the courses in a particular semester (prints)");
+            System.out.println("Output the entire Program of Study (printPOS)");
+            System.out.println("Save the Program of Study to a file (save)");
+            System.out.println("Exit the system (exit)");
+            		
+	}
+
+	/**
+	 * Print the Plan of Study from an ArrayList that 
+	 * holds objects of the Course class. Using a for loop
+	 * to iterate through the array of objects and printing 
+	 * them out while maintaining whilespace between semesters
+	 * 
+	 * @param plan ArayList of Course objects
+	 */
+	
 	public void printPlan(ArrayList<Course> plan){
+
+		int currentSemester = 0;
 
 		for (int i = 0 ; i < plan.size(); i++) {
 
 			Course course = plan.get(i);
-			int semesters = course.semester;
 
-			while(course.semester == semesters){
-				
-				System.out.println(course);
-				semesters++;
+			if(course.semester != currentSemester){
 
-			}
+				System.out.print(course);
 
-			if(semesters != course.semester){
+			}else{
 
-				System.out.println("Semester " + course.semester);
+				System.out.println("");
+				System.out.print(course);
+				currentSemester++;
 
 			}
 					
