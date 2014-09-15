@@ -29,10 +29,10 @@ public class Controller{
 		
 		switch (string.toLowerCase()) {
             case "find":
-                plan.find(view.findPrompt());
+                view.print(plan.find(view.findPrompt()));
                 break;
             case "add":
-                //plan.add();
+                plan.add();
                 break;
             case "remove":
                 //plan.remove();
@@ -51,6 +51,7 @@ public class Controller{
             	break;
             case "exit":
             	bool = false;
+            	System.exit(0);
             	break;
             default:
                 break;

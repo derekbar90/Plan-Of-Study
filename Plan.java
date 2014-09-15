@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.util.Arrays;
 import java.util.ArrayList;
+import java.lang.*;
 
 public class Plan{
 
@@ -118,9 +119,55 @@ public class Plan{
 
 	public String find(String string){
 
-		System.out.println(string);
+		int courseSemester = 0;
+
+		Scanner scan = new Scanner(string);
+
+		String departments = scan.next();
+		int courseNumbers = scan.nextInt();
+
+		for (int i = 0 ; i < planArray.size(); i++) {
+
+			ArrayList semester = planArray.get(i);
+
+			for (int j = 0; j < semester.size() ;j++) {
+
+				course = (Course) semester.get(j);
+				
+				if (course.department.equals(departments) && course.courseNumber == courseNumbers){
+
+					courseSemester = course.semester;
+					
+				}
+
+			}
+
+		}
+
+		return createSemester(courseSemester);
+	}
+
+	public String createSemester(int semester){
+
+		String semesterString = "";
+
+		ArrayList semesters = planArray.get(semester);
+
+			for (int j = 0; j < semesters.size() ;j++) {
+
+				course = (Course) semesters.get(j);
+
+				semesterString += course.toString();
+
+			}
+
+		return semesterString;
+	}
+
+	public void add(){
+
+
 		
-		return string;
 	}
 
 }
