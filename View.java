@@ -118,7 +118,6 @@ public class View{
 	public String menu(){
 
 			System.out.println("");
-			System.out.println("");
 			System.out.println("Please make a selection from the followings");
 			System.out.println("Find a course in the Program of Study (find)");
             System.out.println("Add a course to the Program of Study (add)");
@@ -189,6 +188,15 @@ public class View{
 
 		return semester;
 
+	}
+
+	public String getFileName(){
+
+		System.out.print("Enter filename (no extension): ");
+
+		String filename = getUserInput();
+
+		return filename;
 	}
 
 	public void print(String string){

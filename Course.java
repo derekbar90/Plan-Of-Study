@@ -29,7 +29,7 @@ public class Course{
 
 		}
 
-		String courseOutput = courseOrder + " " + department + " " + courseNumber + " " + credits + gradeOutput + " " + courseName + "\n";
+		String courseOutput = semester + " " + courseOrder + " " + department + " " + courseNumber + " " + credits + gradeOutput + " " + courseName + "\n";
 
 		return courseOutput;
 

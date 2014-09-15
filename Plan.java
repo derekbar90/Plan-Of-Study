@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.util.Arrays;
 import java.util.ArrayList;
 import java.lang.*;
+import java.io.*;
 
 public class Plan{
 
@@ -203,9 +204,34 @@ public class Plan{
 
 	}
 
-	public void save(){
+	public void save(String plan, String filename){
 
+	try{
+		
 
+		String fullFilename = filename + ".dat";
+		String formattedPlan = plan.trim();
+
+		// Create a file - this will overwrite an existing file 
+		FileWriter outstream  = new FileWriter(fullFilename);
+
+		// Create a BufferedWriter pointing to the file
+		BufferedWriter out = new BufferedWriter(outstream);
+
+		// Write to the file
+		out.write(formattedPlan);
+
+		// Close the output stream/file - if you do not do this
+		// your file will appear to be empty
+		out.close();
+     
+     }
+     
+     catch (Exception e){//Catch exception if any
+	
+		System.err.println("Error: " + e.getMessage());
+    
+    }
 
 	}
 
@@ -231,6 +257,7 @@ public class Plan{
 			for (int j = 0; j < semester.size() ;j++) {
 
 				course = semester.get(j);
+				course.courseOrder = j;
 				planString += course.toString();
 
 			}			

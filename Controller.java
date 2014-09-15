@@ -15,9 +15,11 @@ public class Controller{
 
 		}
 		
-		while(menuHandler(view.menu())){
+		boolean bool = true;
+		while(bool){
 
-			menuHandler(view.menu());
+
+			bool = menuHandler(view.menu());
 
 		}
 					
@@ -50,7 +52,9 @@ public class Controller{
                	view.print(plan.toString());
                 break;
             case "save":
-            	plan.save();
+            	String arg1 = plan.toString();
+            	String arg2 = view.getFileName();
+            	plan.save(arg1, arg2);
             	break;
             case "exit":
             	bool = false;
