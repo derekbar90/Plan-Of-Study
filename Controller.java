@@ -2,7 +2,6 @@ public class Controller{
 
 	View view = new View();
 	Plan plan = new Plan();
-	String handler = "";
 
 	public void start(){
 
@@ -16,11 +15,49 @@ public class Controller{
 
 		}
 		
-		do{
+		while(menuHandler(view.menu())){
 
-			handler = plan.menuHandler(view.menu(plan.planArray));
+			menuHandler(view.menu());
 
-		}while(handler != "exit");
+		}
+					
+	}
+
+	public boolean menuHandler(String string){
+
+		boolean bool = true; 
+		
+		switch (string.toLowerCase()) {
+            case "find":
+                //plan.find();
+                break;
+            case "add":
+                //plan.add();
+                break;
+            case "remove":
+                //plan.remove();
+                break;
+            case "grade":
+                //plan.grade();
+                break;
+            case "prints":
+                //plan.prints();
+                break;
+            case "printpos":
+               	view.print(plan.toString());
+                break;
+            case "save":
+            	//plan.save();
+            	break;
+            case "exit":
+            	bool = false;
+            	break;
+            default: 
+                //menu(arrayList);
+                break;
+        }
+
+        return bool;
 
 	}
 

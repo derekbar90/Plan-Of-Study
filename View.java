@@ -115,7 +115,7 @@ public class View{
 		return posTemplate;
 	}
 
-	public String menu(ArrayList<Course> arrayList){
+	public String menu(){
 
 			System.out.println("Please make a selection from the followings");
 			System.out.println("Find a course in the Program of Study (find)");
@@ -129,6 +129,20 @@ public class View{
             String menuSelection = getUserInput();
 
             return menuSelection;
+	}
+
+	public String sysout(String string){
+
+		System.out.println(string);
+
+		return string;
+
+	}
+
+	public void print(String string){
+
+		System.out.println(string);
+
 	}
 
 }

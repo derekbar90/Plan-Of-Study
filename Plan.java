@@ -6,7 +6,9 @@ import java.util.ArrayList;
 
 public class Plan{
 
-	ArrayList<Course> planArray = new ArrayList<Course>();
+	protected ArrayList<ArrayList<Course>> planArray = new ArrayList<ArrayList<Course>>();
+	protected ArrayList<Course> courseArray;
+	protected Course course;
 
 	/**
 	 * Reads a file location in the @param inputLocation and 
@@ -43,14 +45,15 @@ public class Plan{
 			int currentSemester = 0;
 			int courseOrder, courseNumber, credits;
 			String department, courseName;
-			
 			semester = scan.nextInt();
+			planArray.add(courseArray = new ArrayList<Course>());
 
 			while(scan.hasNext()){
 
 				if (currentSemester != semester) {
 					
 					semester++;
+					planArray.add(courseArray = new ArrayList<Course>());
 
 				}else{
 
@@ -59,9 +62,10 @@ public class Plan{
 						courseNumber = scan.nextInt();
 						credits = scan.nextInt();
 						courseName = scan.nextLine();
-
-						planArray.add(new Course(semester, courseOrder, department, courseNumber, credits, courseName));
-												
+						
+						ArrayList<Course> courses = planArray.get(semester);
+						courses.add(new Course(currentSemester, courseOrder, department, courseNumber, credits, courseName));
+						
 						if(scan.hasNext()){
 						
 							currentSemester = scan.nextInt();
@@ -80,45 +84,6 @@ public class Plan{
 
 	}
 
-	public String menuHandler(String string){
-
-		String output = "";
-
-		switch (string.toLowerCase()) {
-            case "find":
-                //plan.find();
-                break;
-            case "add":
-                //plan.add();
-                break;
-            case "remove":
-                //plan.remove();
-                break;
-            case "grade":
-                //plan.grade();
-                break;
-            case "prints":
-                //plan.prints();
-                break;
-            case "printpos":
-                printPOS(planArray);
-                break;
-            case "save":
-            	//plan.save();
-            	break;
-            case "exit":
-            	output = "exit";
-            	break;
-            default: 
-                //menu(arrayList);
-                break;
-        }
-
-        return output;
-
-
-	}
-
 	/**
 	 * Print the Plan of Study from an ArrayList that 
 	 * holds objects of the Course class. Using a for loop
@@ -128,27 +93,33 @@ public class Plan{
 	 * @param plan ArayList of Course objects
 	 */
 	
-	public void printPOS(ArrayList<Course> plan){
 
-		int currentSemester = 0;
+	// public void printPOS(){
 
-		for (int i = 0 ; i < plan.size(); i++) {
+	// 	toString();
 
-			Course course = plan.get(i);
+	// }
 
-			if(course.semester != currentSemester){
+	public String toString(){
 
-				System.out.print(course);
+		String planString = "";
 
-			}else{
+		for (int i = 0 ; i < planArray.size(); i++) {
 
-				System.out.println("");
-				System.out.print(course);
-				currentSemester++;
+			ArrayList semester = planArray.get(i);
+
+			for (int j = 0; j < semester.size() ;j++) {
+
+				course = (Course) semester.get(j);
+				planString += course.toString();
 
 			}
-					
+
+			planString += "\n";
+
 		}
+
+		return planString;
 
 	}
 
