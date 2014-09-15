@@ -21,7 +21,15 @@ public class Course{
 
 	public String toString(){
 
-		String courseOutput = courseOrder + " " + department + " " + courseNumber + " " + credits + " " + courseName + "\n";
+		String gradeOutput = "";
+		
+		if(grade != '\u0000'){
+
+			gradeOutput = " " + grade; 
+
+		}
+
+		String courseOutput = courseOrder + " " + department + " " + courseNumber + " " + credits + gradeOutput + " " + courseName + "\n";
 
 		return courseOutput;
 

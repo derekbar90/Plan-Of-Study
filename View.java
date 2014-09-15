@@ -117,6 +117,8 @@ public class View{
 
 	public String menu(){
 
+			System.out.println("");
+			System.out.println("");
 			System.out.println("Please make a selection from the followings");
 			System.out.println("Find a course in the Program of Study (find)");
             System.out.println("Add a course to the Program of Study (add)");
@@ -141,9 +143,57 @@ public class View{
 		return answer;
 	}
 
+	public String addPrompt(){
+
+		System.out.println("Please enter a new course in the following format: \"1 2 ITEC 320 3  Procedural Analysis and Design\"");
+
+		return getUserInput();
+
+	}
+
+	public String removePrompt(){
+
+		System.out.print("Please enter the semester of the course you would like to remove: ");
+		String answer = getUserInput();
+
+		System.out.print("Please enter the index of the course you would like to remove: ");
+		String answer2 = getUserInput();
+		
+		String courseDelete = answer + " " + answer2;
+
+		return courseDelete;
+	}
+
+	public String gradePrompt(){
+
+		System.out.print("Please enter the semester of the course you would like to add a grade to: ");
+		String answer = getUserInput();
+
+		System.out.print("Please enter the index of the course you would like to add a grade to: ");
+		String answer2 = getUserInput();
+
+		System.out.print("Please enter the grade: ");
+		String grade = getUserInput();
+		
+		String courseDelete = answer + " " + answer2 + " " + grade;
+
+		return courseDelete;
+	}
+
+	public int printsPrompt(){
+
+		System.out.print("Please enter the semester you would like to view: ");
+		String string = getUserInput();
+
+		int semester = Integer.parseInt(string);
+
+		return semester;
+
+	}
+
 	public void print(String string){
 
-		System.out.println(string);
+		System.out.print(string);
 
 	}
 

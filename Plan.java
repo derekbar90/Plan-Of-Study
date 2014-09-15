@@ -46,6 +46,7 @@ public class Plan{
 			int currentSemester = 0;
 			int courseOrder, courseNumber, credits;
 			String department, courseName;
+
 			semester = scan.nextInt();
 			planArray.add(courseArray = new ArrayList<Course>());
 
@@ -85,6 +86,129 @@ public class Plan{
 
 	}
 
+	public String find(String string){
+
+		int courseSemester = 0;
+
+		Scanner scan = new Scanner(string);
+
+		String departments = scan.next();
+		int courseNumbers = scan.nextInt();
+
+		for (int i = 0 ; i < planArray.size(); i++) {
+
+			ArrayList<Course> semester = planArray.get(i);
+
+			for (int j = 0; j < semester.size() ;j++) {
+
+				course = semester.get(j);
+				
+				if (course.department.equals(departments) && course.courseNumber == courseNumbers){
+
+					courseSemester = course.semester;
+					
+				}
+
+			}
+
+		}
+
+		return prints(courseSemester);
+	}
+
+	public String prints(int semester){
+
+		String semesterString = "";
+
+		ArrayList<Course> semesters = planArray.get(semester);
+
+			for (int j = 0; j < semesters.size() ;j++) {
+
+				course = semesters.get(j);
+
+				semesterString += course.toString();
+
+			}
+
+		return semesterString;
+
+	}
+
+	public void add(String string){
+
+			Scanner scan = new Scanner(string);
+			int semester = 0;
+			int courseOrder, courseNumber, credits;
+			String department, courseName;
+			
+			semester = scan.nextInt();
+			
+			courseOrder = scan.nextInt();
+			
+			department = scan.next();
+			
+			courseNumber = scan.nextInt();
+			
+			credits = scan.nextInt();
+			
+			courseName = scan.nextLine();
+			
+			scan.close();
+
+			ArrayList<Course> semesters = planArray.get(semester);
+			
+			semesters.add(new Course(semester, courseOrder, department, courseNumber, credits, courseName));
+
+	}
+
+	public void remove(String string){
+
+		Scanner scan = new Scanner(string);
+		
+		int semester = scan.nextInt();
+		
+		int courseIndex = scan.nextInt();
+		
+		scan.close();
+
+		ArrayList<Course> semesters = planArray.get(semester);
+
+		semesters.remove(courseIndex);
+
+
+	}
+
+	public void grade(String string){
+
+		Scanner scan = new Scanner(string);
+
+		int semester = scan.nextInt();
+
+		int courseIndex = scan.nextInt();
+
+		String gradeString = scan.next();
+
+		char grade = gradeString.charAt(0); 
+
+		scan.close();
+
+		//protected ArrayList<ArrayList<Course>> planArray = new ArrayList<ArrayList<Course>>();
+		//protected ArrayList<Course> courseArray;
+		//protected Course course;
+
+		ArrayList<Course> semesters = planArray.get(semester);
+
+		course = semesters.get(courseIndex);
+		course.grade = grade;
+
+	}
+
+	public void save(){
+
+
+
+	}
+
 	/**
 	 * Print the Plan of Study from an ArrayList that 
 	 * holds objects of the Course class. Using a for loop
@@ -100,74 +224,23 @@ public class Plan{
 
 		for (int i = 0 ; i < planArray.size(); i++) {
 
-			ArrayList semester = planArray.get(i);
-
-			for (int j = 0; j < semester.size() ;j++) {
-
-				course = (Course) semester.get(j);
-				planString += course.toString();
-
-			}
-
 			planString += "\n";
 
-		}
-
-		return planString;
-
-	}
-
-	public String find(String string){
-
-		int courseSemester = 0;
-
-		Scanner scan = new Scanner(string);
-
-		String departments = scan.next();
-		int courseNumbers = scan.nextInt();
-
-		for (int i = 0 ; i < planArray.size(); i++) {
-
-			ArrayList semester = planArray.get(i);
+			ArrayList<Course> semester = planArray.get(i);
 
 			for (int j = 0; j < semester.size() ;j++) {
 
-				course = (Course) semester.get(j);
-				
-				if (course.department.equals(departments) && course.courseNumber == courseNumbers){
+				course = semester.get(j);
+				planString += course.toString();
 
-					courseSemester = course.semester;
-					
-				}
-
-			}
+			}			
 
 		}
 
-		return createSemester(courseSemester);
-	}
+		String formattedPlan = planString.trim();
 
-	public String createSemester(int semester){
+		return formattedPlan;
 
-		String semesterString = "";
-
-		ArrayList semesters = planArray.get(semester);
-
-			for (int j = 0; j < semesters.size() ;j++) {
-
-				course = (Course) semesters.get(j);
-
-				semesterString += course.toString();
-
-			}
-
-		return semesterString;
-	}
-
-	public void add(){
-
-
-		
 	}
 
 }

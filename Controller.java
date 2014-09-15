@@ -26,28 +26,31 @@ public class Controller{
 	public boolean menuHandler(String string){
 
 		boolean bool = true; 
+		String  buffer = "";
+
+		view.print(buffer);
 		
 		switch (string.toLowerCase()) {
             case "find":
                 view.print(plan.find(view.findPrompt()));
                 break;
             case "add":
-                plan.add();
+                plan.add(view.addPrompt());
                 break;
             case "remove":
-                //plan.remove();
+                plan.remove(view.removePrompt());
                 break;
             case "grade":
-                //plan.grade();
+                plan.grade(view.gradePrompt());
                 break;
             case "prints":
-                //plan.prints();
+                view.print(plan.prints(view.printsPrompt()));
                 break;
             case "printpos":
                	view.print(plan.toString());
                 break;
             case "save":
-            	//plan.save();
+            	plan.save();
             	break;
             case "exit":
             	bool = false;
