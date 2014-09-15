@@ -29,7 +29,7 @@ public class Controller{
 		
 		switch (string.toLowerCase()) {
             case "find":
-                //plan.find();
+                plan.find(view.findPrompt());
                 break;
             case "add":
                 //plan.add();

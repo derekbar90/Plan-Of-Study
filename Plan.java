@@ -116,4 +116,11 @@ public class Plan{
 
 	}
 
+	public String find(String string){
+
+		System.out.println(string);
+		
+		return string;
+	}
+
 }

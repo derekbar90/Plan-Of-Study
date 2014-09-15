@@ -131,6 +131,16 @@ public class View{
             return menuSelection;
 	}
 
+	public String findPrompt(){
+
+		String answer;
+		System.out.println("Please enter a department and course number. Example: ITEC 100");
+
+		answer = getUserInput();
+
+		return answer;
+	}
+
 	public void print(String string){
 
 		System.out.println(string);
