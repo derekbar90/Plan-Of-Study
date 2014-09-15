@@ -47,7 +47,6 @@ public class View{
 		}else{
 
 			System.out.println("Please enter Y or N");
-			exsistingPlanOfStudy();
 		}
 
 		return exsistingPlanOfStudyAnswer;

@@ -5,7 +5,7 @@ public class Controller{
 
 	public void start(){
 
-		if (view.exsistingPlanOfStudy() == true) {
+		if(view.exsistingPlanOfStudy()) {
 			
 			plan.createPlan(plan.readFile(view.planOfStudy()));
 
