@@ -87,6 +87,12 @@ public class Plan{
 
 	}
 
+	/**
+	 * Finds a course within the plan and returns a string of the current semester
+	 * 
+	 * @param  string  Department name and course number
+	 * @return         Sting containging the current semester
+	 */
 	public String find(String string){
 
 		int courseSemester = 0;
@@ -117,6 +123,11 @@ public class Plan{
 		return prints(courseSemester);
 	}
 
+	/**
+	 * Asks for semster.
+	 * @param  semester [description]
+	 * @return          [description]
+	 */
 	public String prints(int semester){
 
 		String semesterString = "";
@@ -135,6 +146,12 @@ public class Plan{
 
 	}
 
+	/**
+	 * Adds a course to the last of the given index of the given semester ArrayList 
+	 * based on the @param string contents.
+	 * 
+	 * @param string String containing course information 
+	 */
 	public void add(String string){
 
 			Scanner scan = new Scanner(string);
@@ -162,6 +179,13 @@ public class Plan{
 
 	}
 
+	
+	/**
+	* Accepts a String which contains two ints; the semester and course index.
+	* Upon parsing of the data removes the course for the ArrayList.
+ 	*
+ 	* @param string String containg two ints the semester and course index
+ 	*/
 	public void remove(String string){
 
 		Scanner scan = new Scanner(string);
@@ -179,6 +203,12 @@ public class Plan{
 
 	}
 
+	/**
+	 * Accepts a String which contains three variables. The semester, course index, and grade.
+	 * Upon parsing of the data sets the grade for the given course object.
+	 * 
+	 * @param string Set of variables containing the location and grade of a course
+	 */
 	public void grade(String string){
 
 		Scanner scan = new Scanner(string);
@@ -204,34 +234,43 @@ public class Plan{
 
 	}
 
+	/**
+	 * Takes a given plan string and created a new FileWriter
+	 * as well as a BufferedWrited which will both create a file 
+	 * and then write to the files buffer before closing it's listener.
+	 * Catches if the user has entered incorrect input
+	 * 
+	 * @param plan     String containing the entire plan
+	 * @param filename Name of the file to be written
+	 */
 	public void save(String plan, String filename){
 
-	try{
+		try{
+			
+
+			String fullFilename = filename + ".dat";
+			String formattedPlan = plan.trim();
+
+			// Create a file - this will overwrite an existing file 
+			FileWriter outstream  = new FileWriter(fullFilename);
+
+			// Create a BufferedWriter pointing to the file
+			BufferedWriter out = new BufferedWriter(outstream);
+
+			// Write to the file
+			out.write(formattedPlan);
+
+			// Close the output stream/file - if you do not do this
+			// your file will appear to be empty
+			out.close();
+	     
+	     }
+	     
+	     catch (Exception e){//Catch exception if any
 		
-
-		String fullFilename = filename + ".dat";
-		String formattedPlan = plan.trim();
-
-		// Create a file - this will overwrite an existing file 
-		FileWriter outstream  = new FileWriter(fullFilename);
-
-		// Create a BufferedWriter pointing to the file
-		BufferedWriter out = new BufferedWriter(outstream);
-
-		// Write to the file
-		out.write(formattedPlan);
-
-		// Close the output stream/file - if you do not do this
-		// your file will appear to be empty
-		out.close();
-     
-     }
-     
-     catch (Exception e){//Catch exception if any
-	
-		System.err.println("Error: " + e.getMessage());
-    
-    }
+			System.err.println("Error: " + e.getMessage());
+	    
+	    }
 
 	}
 

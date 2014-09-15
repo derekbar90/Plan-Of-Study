@@ -3,6 +3,13 @@ public class Controller{
 	View view = new View();
 	Plan plan = new Plan();
 
+	/**
+	 * Prompts the user for an exisiting plan of study,
+	 * if there is no exsiting plan of study it will instead read
+	 * a file from the user. Upon completion of finding a plan of study
+	 * it will then pass a File object to the CreatePlan method within the 
+	 * Plan class.
+	 */
 	public void start(){
 
 		if(view.exsistingPlanOfStudy()) {
@@ -25,6 +32,13 @@ public class Controller{
 					
 	}
 
+	/**
+	 * Controls what methods and prompts should be 
+	 * called from the menu system.
+	 * 
+	 * @param  string Menu item Sring
+	 * @return booean Returns true unless menu option is quit        
+	 */
 	public boolean menuHandler(String string){
 
 		boolean bool = true; 

@@ -7,6 +7,16 @@ public class Course{
 	protected char grade;
 	protected String department, courseName;
 
+	/**
+	 * Creates a course object
+	 * 
+	 * @param  semester     Given semester
+	 * @param  courseOrder  Given Course Index
+	 * @param  department   Given department
+	 * @param  courseNumber Given course number
+	 * @param  credits      Given credit number
+	 * @param  courseName   Given course name
+	 */
 	public Course(int semester, int courseOrder, String department, int courseNumber, int credits, String courseName){
 
 		this.semester = semester;
@@ -19,6 +29,10 @@ public class Course{
 
 	}
 
+	/**
+	 * Prints the course object 
+	 * @return String containing the correct output for a course object
+	 */
 	public String toString(){
 
 		String gradeOutput = "";
