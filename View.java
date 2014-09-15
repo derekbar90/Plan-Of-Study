@@ -131,14 +131,6 @@ public class View{
             return menuSelection;
 	}
 
-	public String sysout(String string){
-
-		System.out.println(string);
-
-		return string;
-
-	}
-
 	public void print(String string){
 
 		System.out.println(string);

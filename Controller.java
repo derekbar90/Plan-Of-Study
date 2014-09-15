@@ -52,8 +52,7 @@ public class Controller{
             case "exit":
             	bool = false;
             	break;
-            default: 
-                //menu(arrayList);
+            default:
                 break;
         }
 

@@ -92,13 +92,6 @@ public class Plan{
 	 * 
 	 * @param plan ArayList of Course objects
 	 */
-	
-
-	// public void printPOS(){
-
-	// 	toString();
-
-	// }
 
 	public String toString(){
 
