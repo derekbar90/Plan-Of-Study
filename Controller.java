@@ -1,3 +1,10 @@
+/**
+ * Controller class manages Plan of Study 
+ *
+ * @author Derek Barrera
+ * @version 1.0
+ */
+
 public class Controller{
 
 	View view = new View();
@@ -43,10 +50,10 @@ public class Controller{
 
 		boolean bool = true; 
 		String  buffer = "";
-
+		String choice = string.toLowerCase();
 		view.print(buffer);
 		
-		switch (string.toLowerCase()) {
+		switch (choice) {
             case "find":
                 view.print(plan.find(view.findPrompt()));
                 break;

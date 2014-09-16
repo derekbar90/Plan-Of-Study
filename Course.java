@@ -1,4 +1,9 @@
-import java.lang.Integer;
+/**
+ * Course class to create and display course objects
+ *
+ * @author Derek Barrera
+ * @version 1.0
+ */
 
 public class Course{
 

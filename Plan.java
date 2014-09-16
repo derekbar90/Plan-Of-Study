@@ -1,7 +1,13 @@
+/**
+ * Plan class manages the created of a Plan of Study
+ *
+ * @author Derek Barrera
+ * @version 1.0
+ */
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.util.Arrays;
 import java.util.ArrayList;
 import java.lang.*;
 import java.io.*;
@@ -47,7 +53,7 @@ public class Plan{
 			int currentSemester = 0;
 			int courseOrder, courseNumber, credits;
 			String department, courseName;
-
+			scan.close();
 			semester = scan.nextInt();
 			planArray.add(courseArray = new ArrayList<Course>());
 
@@ -101,7 +107,7 @@ public class Plan{
 
 		String departments = scan.next();
 		int courseNumbers = scan.nextInt();
-
+		scan.close();
 		for (int i = 0 ; i < planArray.size(); i++) {
 
 			ArrayList<Course> semester = planArray.get(i);
