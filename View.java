@@ -1,3 +1,10 @@
+/**
+ * View class manages the interface for Plan of Study
+ *
+ * @author Derek Barrera
+ * @version 1.0
+ */
+
 import java.util.Scanner;
 import java.lang.String;
 import java.io.File;
@@ -87,7 +94,8 @@ public class View{
 		System.out.println("Software Engineering (SE) ");
 		String posTemplate = getUserInput();
 
-		switch (posTemplate.toLowerCase()) {
+		String choice = posTemplate.toLowerCase();
+		switch (choice) {
             case "is":
                 posTemplate = "TestCases/InformationSystems.dat";
                 break;
