@@ -53,7 +53,6 @@ public class Plan{
 			int currentSemester = 0;
 			int courseOrder, courseNumber, credits;
 			String department, courseName;
-			scan.close();
 			semester = scan.nextInt();
 			planArray.add(courseArray = new ArrayList<Course>());
 
